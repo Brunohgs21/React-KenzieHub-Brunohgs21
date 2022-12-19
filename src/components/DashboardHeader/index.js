@@ -188,8 +188,21 @@ export const DivCheck = styled.div`
 export const List = styled.div`
   padding: 0 12.5rem 0 12.5rem;
   width: 100%;
+  text-align: center;
 
   max-height: 416px;
+  .empty {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+    /* identical to box height, or 165% */
+    margin-bottom: 30px;
+
+    color: #ffffff;
+    margin-top: 25px;
+  }
 
   ul {
     background-color: #212529;

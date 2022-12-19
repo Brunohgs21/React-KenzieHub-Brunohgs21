@@ -1,19 +1,36 @@
 import { List } from "./../DashboardHeader/index";
 import TechItem from "./../TechItem/index";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TechContext } from "../../contexts/TechContext";
+import { api } from "../../services/api";
 
 const TechList = ({ setOpenModalEdit }) => {
-  const { user } = useContext(TechContext);
-  const { techs } = user;
-  console.log(techs);
+  // const { user } = useContext(TechContext);
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    async function loadTech() {
+      const token = localStorage.getItem("Token");
+
+      try {
+        api.defaults.headers.common.authorization = `Bearer ${token}`;
+        const { data } = await api.get("/profile");
+        setUser(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+      }
+    }
+    loadTech();
+  }, [user]);
+
   return (
     <List>
       <ul>
-        {techs.length === 0 ? (
-          <p>Cadastre novas tecnologias</p>
+        {user === undefined || user.techs.length == 0 ? (
+          <p className="empty">Cadastre novas tecnologias</p>
         ) : (
-          techs.map((item) => (
+          user.techs.map((item) => (
             <TechItem
               id={item.id}
               status={item.status}
