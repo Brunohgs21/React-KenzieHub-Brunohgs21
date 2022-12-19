@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { DivModal, BackGround } from "../DashboardHeader";
 import { useContext } from "react";
 import { TechContext } from "../../contexts/TechContext";
 import { useForm } from "react-hook-form";
 const ModalEdit = ({ setOpenModalEdit }) => {
-  const { user, deleteTech, updateTech } = useContext(TechContext);
-  const { techs } = user;
+  const { deleteTech, updateTech } = useContext(TechContext);
   const { register, handleSubmit } = useForm();
 
-  const techId = localStorage.getItem("TechId");
-  let filtro = "";
-  if (techId != "deleted") {
-    filtro = techs.filter((item) => {
-      return item.id == techId;
-    });
-  }
+  const techName = localStorage.getItem("TechName");
 
   return (
     <BackGround>
@@ -28,13 +21,7 @@ const ModalEdit = ({ setOpenModalEdit }) => {
 
         <form onSubmit={handleSubmit(updateTech)}>
           <label htmlFor="">Nome do projeto</label>
-          <input
-            disabled
-            type="text"
-            name=""
-            id=""
-            value={techId != "deleted" ? filtro[0].title : "Tecnologia"}
-          />
+          <input disabled type="text" name="" id="" value={techName} />
 
           <label htmlFor="">Status</label>
           <select name="" id="" {...register("status")}>
