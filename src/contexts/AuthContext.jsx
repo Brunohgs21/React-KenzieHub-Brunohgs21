@@ -1,10 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { api } from "./../services/api";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useOutClick } from "../hooks/useOutclick";
-import { formSchema } from "../services/validation/index";
+
 import { toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 
@@ -60,41 +57,6 @@ export const AuthProvider = ({ children }) => {
 
   const [newUser, setNewUser] = useState(null);
 
-  const [pwdRequisite, setPWDRequisite] = useState(false);
-  const [checks, setChecks] = useState({
-    capsLetterCheck: false,
-    numerCheck: false,
-    pwdLengthCheck: false,
-    specialCharCheck: false,
-  });
-  const clickRef = useOutClick(() => setPWDRequisite(false));
-
-  function handleOnFocus() {
-    setPWDRequisite(true);
-  }
-
-  function handleOnKeyUp(e) {
-    const { value } = e.target;
-    const capsLetterCheck = /[A-Z]/.test(value);
-    const numberCheck = /[0123456789]/.test(value);
-    const pwdLengthCheck = value.length >= 8;
-    const specialCharCheck = /[!@#$%^&*]/.test(value);
-    setChecks({
-      capsLetterCheck,
-      numberCheck,
-      pwdLengthCheck,
-      specialCharCheck,
-    });
-  }
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(formSchema),
-  });
-
   const onSubmitFunction = (data) => {
     if (data.confirmation == data.password) {
       let { email, name, contact, password, bio, course_module } = data;
@@ -129,7 +91,7 @@ export const AuthProvider = ({ children }) => {
           navigate("/");
         }, 5000);
       } catch (err) {
-        console.log(err);
+        console.error(err);
         toast.error("Ops! Algo deu errado");
       } finally {
         setNewUser(null);
@@ -143,15 +105,7 @@ export const AuthProvider = ({ children }) => {
         login,
         user,
         loading,
-        handleOnFocus,
-        handleOnKeyUp,
-        pwdRequisite,
-        register,
-        handleSubmit,
         onSubmitFunction,
-        errors,
-        checks,
-        clickRef,
       }}
     >
       {children}

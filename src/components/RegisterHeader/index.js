@@ -72,6 +72,7 @@ export const Div = styled.div`
     align-items: center;
     padding: 0rem 1.3959rem;
     gap: 0.6344rem;
+    cursor: pointer;
 
     width: 100%;
     height: 2.1875rem;
@@ -93,6 +94,10 @@ export const Div = styled.div`
 
     color: #ffffff;
   }
+  .btn:hover {
+    background-color: #ff577f;
+    transition: 1s ease;
+  }
 
   .btn2 {
     display: flex;
@@ -101,6 +106,7 @@ export const Div = styled.div`
     align-items: center;
     padding: 0rem 1.3959rem;
     gap: 0.6344rem;
+    cursor: pointer;
 
     width: 100%;
     height: 2.1875rem;
@@ -121,6 +127,13 @@ export const Div = styled.div`
     /* identical to box height, or 165% */
 
     color: #ffffff;
+  }
+
+  .btn2:hover {
+    color: #ff577f;
+    background: #121214;
+    border: #121214;
+    transition: 1s ease;
   }
 
   .text {
@@ -276,6 +289,12 @@ export const BtnLink = styled(LinkRouter)`
 
   color: #f8f9fa;
 
+  &&:hover {
+    background-color: #f8f9fa;
+    color: #868e96;
+    transition: 1s ease;
+  }
+
   @media (max-width: 700px) {
     width: 100%;
   }
@@ -295,7 +314,6 @@ export const Logo = styled.h1`
   color: #ff577f;
 `;
 export const Logo2 = styled.h1`
-  margin-top: 20px;
   font-family: "Inter", sans-serif;
 
   /* color-primary */

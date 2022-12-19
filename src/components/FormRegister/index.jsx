@@ -3,20 +3,47 @@ import { Div } from "../RegisterHeader";
 import "react-toastify/ReactToastify.css";
 import PWDRequisite from "../PWDRequisite";
 import { AuthContext } from "./../../contexts/AuthContext";
-import { useContext } from "react";
+import { useContext, useState, useForm } from "react";
+import { useOutClick } from "../../hooks/useOutclick";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { formSchema } from "../../services/validation";
 
 const FormRegister = () => {
+  const { onSubmitFunction } = useContext(AuthContext);
+
   const {
-    handleOnFocus,
-    handleOnKeyUp,
-    pwdRequisite,
     register,
     handleSubmit,
-    onSubmitFunction,
-    errors,
-    checks,
-    clickRef,
-  } = useContext(AuthContext);
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchema),
+  });
+
+  const [pwdRequisite, setPWDRequisite] = useState(false);
+  const [checks, setChecks] = useState({
+    capsLetterCheck: false,
+    numerCheck: false,
+    pwdLengthCheck: false,
+    specialCharCheck: false,
+  });
+  const clickRef = useOutClick(() => setPWDRequisite(false));
+  function handleOnFocus() {
+    setPWDRequisite(true);
+  }
+
+  function handleOnKeyUp(e) {
+    const { value } = e.target;
+    const capsLetterCheck = /[A-Z]/.test(value);
+    const numberCheck = /[0123456789]/.test(value);
+    const pwdLengthCheck = value.length >= 8;
+    const specialCharCheck = /[!@#$%^&*]/.test(value);
+    setChecks({
+      capsLetterCheck,
+      numberCheck,
+      pwdLengthCheck,
+      specialCharCheck,
+    });
+  }
   return (
     <Div ref={clickRef}>
       <RegisterHeader />

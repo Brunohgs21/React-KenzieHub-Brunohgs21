@@ -25,7 +25,7 @@ const ModalEdit = ({ setOpenModalEdit }) => {
 
           <label htmlFor="">Status</label>
           <select name="" id="" {...register("status")}>
-            <option value="Iniciante">Iniciante</option>
+            <option value="Iniciante">Iniciante</option>g
             <option value="Intermediário">Intermediário</option>
             <option value="Avançado">Avançado</option>
           </select>

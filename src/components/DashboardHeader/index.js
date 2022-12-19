@@ -22,6 +22,7 @@ export const Header = styled.header`
     align-items: center;
     padding: 0rem 1.0152rem;
     gap: 0.6344rem;
+    cursor: pointer;
 
     width: 3.4681rem;
     height: 2rem;
@@ -46,6 +47,10 @@ export const Header = styled.header`
     @media (max-width: 700px) {
       padding: 0;
     }
+  }
+  button:hover {
+    background-color: #ff577f;
+    transition: 1s ease;
   }
 `;
 
@@ -158,7 +163,7 @@ export const Main = styled.div`
     color: #f8f9fa;
   }
 
-  .addBtn {
+  button {
     height: 32px;
     width: 32.485294342041016px;
     background: #212529;
@@ -169,6 +174,11 @@ export const Main = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  button:hover {
+    background-color: #ff577f;
+
+    transition: 1s ease;
   }
 `;
 
@@ -246,11 +256,10 @@ export const DivModal = styled.div`
     font-weight: 600;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 162% */
+
     background-color: transparent;
     border: none;
-
-    /* grey-1 */
+    cursor: pointer;
 
     color: #868e96;
   }
@@ -260,10 +269,6 @@ export const DivModal = styled.div`
     font-weight: 700;
     font-size: 14px;
     line-height: 24px;
-    /* identical to box height, or 171% */
-
-    /* grey-0 */
-
     color: #f8f9fa;
   }
   form {
@@ -279,16 +284,12 @@ export const DivModal = styled.div`
     font-weight: 400;
     font-size: 12.182px;
     line-height: 0px;
-    /* identical to box height, or 0% */
-
-    /* grey-0 */
 
     font-family: "Inter", sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 165% */
 
     color: #ffffff;
     margin-top: 25px;
@@ -304,11 +305,7 @@ export const DivModal = styled.div`
     width: 100%;
     height: 48px;
 
-    /* grey-2 */
-
     background: #343b41;
-    /* grey-0 */
-
     border: 1.2182px solid #f8f9fa;
     border-radius: 4px;
     font-family: "Inter", sans-serif;
@@ -316,7 +313,6 @@ export const DivModal = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 165% */
 
     color: #ffffff;
   }
@@ -331,10 +327,7 @@ export const DivModal = styled.div`
     width: 100%;
     height: 48px;
 
-    /* grey-2 */
-
     background: #343b41;
-    /* grey-0 */
 
     border: 1.2182px solid #f8f9fa;
     border-radius: 4px;
@@ -343,7 +336,6 @@ export const DivModal = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 165% */
 
     color: #ffffff;
   }
@@ -354,15 +346,13 @@ export const DivModal = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0px 22.3336px;
+    cursor: pointer;
     gap: 10.15px;
 
     width: 100%;
     height: 48px;
 
-    /* color-primary */
-
     background: #ff577f;
-    /* color-primary */
 
     border: 1.2182px solid #ff577f;
     border-radius: 4.06066px;
@@ -372,9 +362,15 @@ export const DivModal = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 165% */
 
     color: #ffffff;
+  }
+
+  .buttonSubmit:hover {
+    background-color: #121214;
+    color: #ff577f;
+    border: #ff577f;
+    transition: 1s ease;
   }
 
   section {
@@ -392,11 +388,9 @@ export const DivModal = styled.div`
 
     width: 204px;
     height: 48px;
-
-    /* color-primary-Disable */
+    cursor: pointer;
 
     background: #59323f;
-    /* color-primary-Disable */
 
     border: 1.2182px solid #59323f;
     border-radius: 4px;
@@ -406,9 +400,12 @@ export const DivModal = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 165% */
 
     color: #ffffff;
+  }
+  .btnSave:hover {
+    background-color: #ff577f;
+    transition: 1s ease;
   }
 
   .btnDelete {
@@ -423,11 +420,9 @@ export const DivModal = styled.div`
 
     width: 98px;
     height: 48px;
-
-    /* grey-1 */
+    cursor: pointer;
 
     background: #868e96;
-    /* grey-1 */
 
     border: 1.2182px solid #868e96;
     border-radius: 4px;
@@ -437,9 +432,12 @@ export const DivModal = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 165% */
 
     color: #ffffff;
+  }
+  .btnDelete:hover {
+    color: #121214;
+    transition: 1s ease;
   }
 `;
 
@@ -470,11 +468,14 @@ export const ItemTech = styled.li`
   font-weight: 400;
   font-size: 12.182px;
   line-height: 22px;
-  /* identical to box height, or 183% */
 
-  /* grey-0 */
   padding-left: 13px;
   padding-right: 13px;
 
   color: #f8f9fa;
+
+  &&:hover {
+    background-color: #343b41;
+    transition: 1s ease;
+  }
 `;

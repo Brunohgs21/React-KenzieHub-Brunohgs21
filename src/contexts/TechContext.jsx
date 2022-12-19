@@ -49,10 +49,9 @@ export const TechProvider = ({ children }) => {
     try {
       const text = "deleted";
       const response = await api.delete(`/users/techs/${techId}`);
-      console.log(response);
       localStorage.setItem("TechId", text);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       loadTechAgain();
     }
@@ -62,9 +61,8 @@ export const TechProvider = ({ children }) => {
     const techId = localStorage.getItem("TechId");
     try {
       const response = await api.put(`/users/techs/${techId}`, data);
-      console.log(response);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       loadTechAgain();
     }

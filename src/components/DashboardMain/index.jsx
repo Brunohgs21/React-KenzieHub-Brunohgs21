@@ -6,9 +6,7 @@ const DashboardMain = ({ setOpenModal, setOpenModalEdit }) => {
     <Main>
       <div>
         <p className="techText">Tecnologias</p>{" "}
-        <button className="addBtn" onClick={() => setOpenModal(true)}>
-          +
-        </button>
+        <button onClick={() => setOpenModal(true)}>+</button>
       </div>
       <TechList setOpenModalEdit={setOpenModalEdit}></TechList>
     </Main>
