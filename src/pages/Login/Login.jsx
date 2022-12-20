@@ -17,9 +17,6 @@ const Login = () => {
     }
   }, [navigate]);
 
-  // if (loading) {
-  //   return null;
-  // }
   return (
     <Container>
       <FormLogin />

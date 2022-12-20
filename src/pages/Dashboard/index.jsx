@@ -10,7 +10,6 @@ const DashBoard = () => {
   const [openModal, setOpenModal] = useState(false);
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
-  console.log(openModal);
   return (
     <Div>
       <DashboardHeader />

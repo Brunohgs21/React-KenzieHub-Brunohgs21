@@ -1,12 +1,14 @@
+import React from "react";
 import RegisterHeader from "./../RegisterHeader/RegisterHeader";
 import { Div } from "../RegisterHeader";
 import "react-toastify/ReactToastify.css";
 import PWDRequisite from "../PWDRequisite";
 import { AuthContext } from "./../../contexts/AuthContext";
-import { useContext, useState, useForm } from "react";
+import { useContext, useState } from "react";
 import { useOutClick } from "../../hooks/useOutclick";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../services/validation";
+import { useForm } from "react-hook-form";
 
 const FormRegister = () => {
   const { onSubmitFunction } = useContext(AuthContext);
