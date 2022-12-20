@@ -230,8 +230,6 @@ export const Nav = styled.div`
 `;
 
 export const Link = styled(LinkRouter)`
-  margin-top: 20px;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -259,6 +257,11 @@ export const Link = styled(LinkRouter)`
   /* grey-0 */
 
   color: #f8f9fa;
+
+  &&:hover {
+    background-color: #ff577f;
+    transition: 1s ease;
+  }
 `;
 
 export const BtnLink = styled(LinkRouter)`
