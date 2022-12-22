@@ -2,10 +2,18 @@ import { BtnLink, Div, Logo } from "./../RegisterHeader/index";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "./../../contexts/AuthContext";
 import { useContext } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { formSchemaLogin } from "../../services/validation";
 
 const FormLogin = () => {
   const { login } = useContext(AuthContext);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchemaLogin),
+  });
 
   return (
     <Div>
@@ -23,6 +31,7 @@ const FormLogin = () => {
               placeholder="Digite aqui seu email"
               {...register("email")}
             />
+            {errors.email?.message}
 
             <label htmlFor="senha">Senha</label>
             <input
@@ -31,6 +40,7 @@ const FormLogin = () => {
               placeholder="Digite aqui sua senha"
               {...register("password")}
             />
+            {errors.password?.message}
 
             <button className="btn2">Entrar</button>
           </div>

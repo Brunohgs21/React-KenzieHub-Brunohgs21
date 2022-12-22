@@ -10,3 +10,11 @@ export const formSchema = yup.object().shape({
   bio: yup.string().required(<p>Insira uma bio</p>),
   password: yup.string().required(<p>Insira uma senha</p>),
 });
+
+export const formSchemaLogin = yup.object().shape({
+  email: yup
+    .string()
+    .required(<p>E-mail obrigatório</p>)
+    .email(<p>E-mail inválido</p>),
+  password: yup.string().required(<p>Insira uma senha</p>),
+});
